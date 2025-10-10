@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_uint.c                                    :+:      :+:    :+:   */
+/*   ft_lst_add_back.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/30 17:31:24 by liferrei          #+#    #+#             */
-/*   Updated: 2025/08/07 11:34:20 by liferrei         ###   ########.fr       */
+/*   Created: 2025/07/27 17:08:14 by liferrei          #+#    #+#             */
+/*   Updated: 2025/10/10 14:53:46 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_print_char(char c);
-
-int	ft_print_uint(unsigned int num)
+void	ft_lst_add_back(t_list **lst, t_list *new)
 {
-	int	count;
+	t_list	*last;
 
-	count = 0;
-	if (num >= 10)
-		count += ft_print_uint(num / 10);
-	count += ft_print_char(num % 10 + '0');
-	return (count);
+	if (!lst || !new)
+		return ;
+	if (*lst == NULL)
+	{
+		*lst = new;
+		return ;
+	}
+	last = ft_lstlast(*lst);
+	last->next = new;
 }

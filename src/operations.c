@@ -1,19 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_percent.c                                 :+:      :+:    :+:   */
+/*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/30 17:35:03 by liferrei          #+#    #+#             */
-/*   Updated: 2025/08/07 11:27:36 by liferrei         ###   ########.fr       */
+/*   Created: 2025/09/30 09:21:33 by liferrei          #+#    #+#             */
+/*   Updated: 2025/09/30 09:21:53 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/push_swap.h"
 
-int	ft_print_percent(void)
-{
-	write(1, "%", 1);
-	return (1);
-}
