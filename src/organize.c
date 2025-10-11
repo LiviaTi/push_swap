@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 15:54:20 by liferrei          #+#    #+#             */
-/*   Updated: 2025/10/11 16:22:01 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/10/11 16:28:53 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,31 @@ void	ft_organize_4_5(t_list **a, t_list **b, int size)
 		sa(a);
 	while ((*b))
 		pa(a, b);
+}
+
+void	ft_organize_big(t_list **a, t_list **b, int size_chunk)
+{
+	int		i;
+
+	i = 0;
+	while ((*a))
+	{
+		if (i > 0 && (*a)->index < i)
+		{
+			pb(a, b);
+			if ((*a) && (*a)->index >= i + size_chunk)
+				rr(a, b);
+			else
+				rb(b);
+			i++;
+		}
+		else if ((*a)->index < i + size_chunk)
+		{
+			pb(a, b);
+			i++;
+		}
+		else if ((*a)->index >= i + size_chunk)
+			ra(a);
+	}
+	ft_organize(a, b);
 }
