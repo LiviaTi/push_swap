@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_ input.c                                     :+:      :+:    :+:   */
+/*   aux_main.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 10:44:39 by liferrei          #+#    #+#             */
-/*   Updated: 2025/10/11 17:03:30 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/10/11 17:30:05 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,51 @@ int	ft_parse_input(int argc, char **argv, t_list **tower_a)
 		i++;
 	}
 	return (size);
+}
+
+void	ft_free_split(char **args)
+{
+	int		i;
+
+	i = 0;
+	if (!args)
+		return (0);
+	while (args[i])
+	{
+		free(args[i]);
+		i++;
+	}
+	free(args);
+}
+
+void	ft_free_stack(char **stack)
+{
+	t_list	*current;
+	t_list	*tmp;
+
+	current = *stack;
+	while (current)
+	{
+		tmp = current;
+		current = current->next;
+		free(tmp);
+	}
+	*stack = NULL;
+}
+
+int ft_fill_stack(char **args, t_list **a)
+{
+	int		i;
+	int		total;
+	t_list	*new_node;
+
+	i = 0;
+	total = 0;
+	while (args[i])
+	{
+		total = ft_parse_number(arg[i]);
+		new_node = malloc
+		i++;
+	}
+	return (i);
 }

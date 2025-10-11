@@ -6,7 +6,7 @@
 #    By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/13 16:38:52 by liferrei          #+#    #+#              #
-#    Updated: 2025/10/11 17:09:58 by liferrei         ###   ########.fr        #
+#    Updated: 2025/10/11 17:18:54 by liferrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ SRC			=	aux_organize.c \
 				check.c \
 				operations.c \
 				organize.c \
-				parse_input.c \
+				aux_main.c \
 				push.c \
 				reverse_rotate.c \
 				rotate.c \

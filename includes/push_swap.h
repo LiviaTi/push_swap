@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 09:07:50 by liferrei          #+#    #+#             */
-/*   Updated: 2025/10/11 16:55:51 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/10/11 17:25:52 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	ft_error_exit(void);
 int		ft_parse_input(int argc, char **argv, t_list **tower_a);
 int		ft_parse_number(const char *str);
 void	ft_check_rep(t_list **n);
+void	ft_free_split(char **args);
+void	ft_free_stack(char **stack);
 
 int		n_min(t_list **n);
 int		n_max(t_list **n);
