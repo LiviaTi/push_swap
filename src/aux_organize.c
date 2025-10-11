@@ -6,13 +6,13 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 16:02:48 by liferrei          #+#    #+#             */
-/*   Updated: 2025/10/11 16:52:23 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/10/11 17:02:56 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int		ft_max_pos(t_list **b, int max, int size)
+int	max_pos(t_list **b, int max, int size)
 {
 	t_list	*n;
 	int		max_index;
@@ -35,7 +35,7 @@ int		ft_max_pos(t_list **b, int max, int size)
 		return (1);
 }
 
-int		ft_min_pos(t_list **a, int min, int size)
+int	min_pos(t_list **a, int min, int size)
 {
 	t_list	*n;
 	int		min_index;
@@ -56,7 +56,6 @@ int		ft_min_pos(t_list **a, int min, int size)
 		return (0);
 	else
 		return (1);
-	
 }
 
 void	ft_set_index(t_list **a)
@@ -64,7 +63,7 @@ void	ft_set_index(t_list **a)
 	t_list	*current;
 	t_list	*comparer;
 	int		index;
-	
+
 	index = 0;
 	current = *a;
 	while (current)
@@ -85,17 +84,16 @@ void	ft_organize_pa(t_list **a, t_list **b)
 {
 	int		max;
 	int		size;
-	
+
 	max = 0;
 	size = 0;
-	while(*b)
+	while (*b)
 	{
-		max = ft_index_max(b); 
-		size = ft_lst_size(b);
-
+		max = ft_index_max(b);
+		size = lst_size(b);
 		if ((*b)->index != max)
 		{
-			if (!ft_max_pos(b, max, size))
+			if (!max_pos(b, max, size))
 				rb(b);
 			else
 				rrb(b);

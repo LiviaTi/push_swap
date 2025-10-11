@@ -6,13 +6,13 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 10:44:39 by liferrei          #+#    #+#             */
-/*   Updated: 2025/10/10 15:08:41 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/10/11 17:03:30 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int ft_parse_input(int argc, char **argv, t_list **tower_a)
+int	ft_parse_input(int argc, char **argv, t_list **tower_a)
 {
 	int		i;
 	int		size;
