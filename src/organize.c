@@ -1,0 +1,82 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   organize.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/11 15:54:20 by liferrei          #+#    #+#             */
+/*   Updated: 2025/10/11 16:22:01 by liferrei         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/push_swap.h"
+
+void ft_organize(t_list **a, t_list **b, int size)
+{
+	if (size >= 2 && size <= 5)
+	{
+		if (size == 2)
+			ft_organize_2(a);
+		else if (size == 3)
+			ft_organize_3(a);
+		else if (size == 4 || size == 5)
+			ft_organize_4_5(a, b, size);
+	}
+	if (size >= 6)
+	{
+		ft_set_index(a);
+		if (size <= 100)
+			ft_organize_big(a, b, 15);
+		else
+			ft_organize_big(a, b, 30);
+	}
+}
+
+void	ft_organize_2(t_list **a)
+{
+	if ((*a)->next->number < (*a)->number)
+		sa(a);
+}
+
+void	ft_organize_3(t_list **a)
+{
+	if ((*a)->number == ft_n_max(a))
+	{
+		ra(a);
+		if ((*a)->number > (*a)->next->number)
+			sa(a);
+	}
+	else if ((*a)->number == ft_n_min(a) && (*a)->number == ft_n_max(a))
+	{
+		rra(a);
+		sa(a);
+	}
+	else if ((*a)->number == ft_n_min(a) && (*a)->number > (*a)->next->number)
+		sa(a);
+	else if ((*a)->number == ft_n_min(a) && (*a)->number < (*a)->next->number)
+		rra(a);
+}
+
+void	ft_organize_4_5(t_list **a, t_list **b, int size)
+{
+	int		i;
+
+	i = 0;
+	while (i < size / 2 + size % 2)
+	{
+		if ((*a)->number > ft_n_max(a) && !ft_min_pos(a, ft_n_max(a), ft_lst_size(a)))
+			ra(a);
+		else if ((*a)->number > ft_n_max(a) && ft_min_pos(a, ft_n_max(a), ft_lst_size(a)))
+			rra(a);
+		else if ((*a)->number == ft_n_min(a))
+		{
+			pb(a, b);
+			i++;
+		}
+	}
+	if ((*a)->number != ft_n_min(a))
+		sa(a);
+	while ((*b))
+		pa(a, b);
+}
