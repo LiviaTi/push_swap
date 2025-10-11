@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 10:44:39 by liferrei          #+#    #+#             */
-/*   Updated: 2025/10/10 14:44:22 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/10/10 15:08:41 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int ft_parse_input(int argc, char **argv, t_list **tower_a)
 		if (!args || !*args)
 		{
 			ft_free_split(args);
-			ft_exit_error();
+			ft_error_exit();
 		}
 		size += ft_fill_tower_args(args, tower_a);
 		ft_free_split(args);

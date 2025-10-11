@@ -1,45 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validation.c                                       :+:      :+:    :+:   */
+/*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/30 10:34:58 by liferrei          #+#    #+#             */
-/*   Updated: 2025/10/10 15:20:54 by liferrei         ###   ########.fr       */
+/*   Created: 2025/10/10 15:22:40 by liferrei          #+#    #+#             */
+/*   Updated: 2025/10/10 15:57:46 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_error_exit(void)
+void	ft_check_rep(t_list **n)
 {
-	write(2, "Error\n", 6);
-	exit(1);
-}
+	t_list	*tmp_1;
+	t_list	*tmp_2;
 
-int	ft_parse_number(const char *str)
-{
-	long	n;
-	int		i;
-	int		num;
-
-	if (!str || *str == '\0')
-		ft_error_exit();
-	n = 0;
-	i = 0;
-	if (str[i] == "+" || str[i] == "-")
-		i++;
-	if (!ft_isdigit(str[i]))
-		ft_error_exit();
-	while (str[i])
+	tmp_1 = n;
+	while (tmp_1)
 	{
-		if (!ft_isdigit(str[i]))
-			ft_error_exit();
-		i++;
+		tmp_2 = tmp_1->next;
+		while (tmp_2)
+		{
+			if (tmp_1->number == tmp_2->number)
+				ft_error_exit();
+			tmp_2 = tmp_2->next;
+		}
+		tmp_1 = tmp_1->next;
 	}
-	n = ft_atoi(str);
-	if (n < -2147483648 || n > 2147483647)
-		ft_error_exit();
-	return ((int)num);
 }
