@@ -1,48 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/11 15:18:45 by liferrei          #+#    #+#             */
-/*   Updated: 2025/10/11 15:50:43 by liferrei         ###   ########.fr       */
+/*   Created: 2025/10/11 15:41:53 by liferrei          #+#    #+#             */
+/*   Updated: 2025/10/11 15:50:20 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	ft_rotate(t_list **stack)
+static void	ft_reverse_rotate(t_list **stack)
 {
 	t_list	*first;
 	t_list	*last;
 
 	if (!stack || !*stack || !(*stack)->next)
 		return (0);
-	first = *stack;
+	first = NULL;
 	last = *stack;
 	while (last->next)
-		last = last->next;
-	*stack = first->next;
+	{
+		first = last;
+		last = last->next;		
+	}
+	last->next = *stack;
+	*stack = last;
 	first->next = NULL;
-	last->next = first;
+	
 }
 
-void	ra(t_list **tower_a)
+void	rra(t_list **tower_a)
 {
-	ft_rotate(tower_a);
-	write(1, "ra\n", 3);
+	ft_reverse_rotate(tower_a);
+	write(1, "rra\n", 4);
 }
 
-void	rb(t_list **tower_b)
+void	rrb(t_list **tower_b)
 {
-	ft_rotate(tower_b);
-	write(1, "rb\n", 3);
+	ft_reverse_rotate(tower_b);
+	write(1, "rrb\n", 4);
 }
 
-void	rr(t_list **tower_a, t_list **tower_b)
+void	rrr(t_list **tower_a, t_list **tower_b)
 {
-	ft_rotate(tower_a);
-	ft_rotate(tower_b);
-	write(1, "rr\n", 3);
+	ft_reverse_rotate(tower_a);
+	ft_reverse_rotate(tower_b);
+	write(1, "rrr\n", 4);
 }

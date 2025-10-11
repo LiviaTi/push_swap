@@ -6,13 +6,13 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 15:31:28 by liferrei          #+#    #+#             */
-/*   Updated: 2025/10/10 15:41:39 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/10/11 15:51:05 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	swap(t_list **stack)
+static void	ft_swap(t_list **stack)
 {
 	t_list	*first;
 	t_list	*second;
@@ -26,21 +26,21 @@ static void	swap(t_list **stack)
 	*stack = second;
 }
 
-void	sa(t_list **list_a)
+void	sa(t_list **tower_a)
 {
-	swap(list_a);
+	ft_swap(tower_a);
 	write(1, "sa\n", 3);
 }
 
-void	sb(t_list **list_b)
+void	sb(t_list **tower_b)
 {
-	swap(list_b);
+	ft_swap(tower_b);
 	write(1, "sb\n", 3);
 }
 
-void	ss(t_list **list_a, t_list **list_b)
+void	ss(t_list **tower_a, t_list **tower_b)
 {
-	swap(list_a);
-	swap(list_b);
+	ft_swap(tower_a);
+	ft_swap(tower_b);
 	write(1, "ss\n", 3);
 }
