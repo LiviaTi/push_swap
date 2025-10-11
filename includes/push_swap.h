@@ -6,14 +6,14 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 09:07:50 by liferrei          #+#    #+#             */
-/*   Updated: 2025/10/11 15:31:20 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/10/11 15:39:47 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft.h"
+# include "../libft/libft.h"
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -31,6 +31,9 @@ int		ft_is_chosen(t_list **n);
 void	sa(t_list **list_a);
 void	sb(t_list **list_b);
 void	ss(t_list **list_a, t_list **list_b);
+
+void	pa(t_list **list_a, t_list **list_b);
+void	pb(t_list **list_a, t_list **list_b);
 
 void	ra(t_list **list_a);
 void	rb(t_list **list_b);
