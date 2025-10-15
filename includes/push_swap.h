@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 09:07:50 by liferrei          #+#    #+#             */
-/*   Updated: 2025/10/15 00:06:44 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/10/15 14:45:24 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
+
 # include <stdlib.h>
 # include <unistd.h>
-
 
 void	ft_error_exit(void);
 int		ft_parse_input(int argc, char **argv, t_list **tower_a);
