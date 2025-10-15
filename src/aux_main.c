@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 10:44:39 by liferrei          #+#    #+#             */
-/*   Updated: 2025/10/15 00:07:17 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/10/15 15:45:42 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_parse_input(int argc, char **argv, t_list **tower_a)
 	size = 0;
 	while (i < argc)
 	{
-		size = ft_split(argv[i], ' ');
+		args = ft_split(argv[i], ' ');
 		if (!args || !*args)
 		{
 			ft_free_split(args);
@@ -75,11 +75,11 @@ int	ft_fill_stack(char **args, t_list **a)
 	total = 0;
 	while (args[i])
 	{
-		total = ft_parse_number(arg[i]);
+		total = ft_parse_number(args[i]);
 		new_node = malloc(sizeof(t_list));
 		if (!new_node)
 			ft_error_exit();
-		new_node->number = num;
+		new_node->number = total;
 		new_node->next = NULL;
 		ft_lst_add_back(a, new_node);
 		i++;

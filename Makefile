@@ -6,7 +6,7 @@
 #    By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/13 16:38:52 by liferrei          #+#    #+#              #
-#    Updated: 2025/10/15 14:26:52 by liferrei         ###   ########.fr        #
+#    Updated: 2025/10/15 15:21:51 by liferrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,7 @@ INC			=	-I ./includes/\
 # Sources
 SRC_PATH	=	src/
 SRC			=	aux_organize.c \
-				check.c \
-				operations.c \
+				aux_operations.c \
 				organize.c \
 				aux_main.c \
 				push.c \

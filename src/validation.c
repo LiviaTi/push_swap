@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 10:34:58 by liferrei          #+#    #+#             */
-/*   Updated: 2025/10/10 15:20:54 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/10/15 15:21:40 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,23 @@ int	ft_parse_number(const char *str)
 	if (n < -2147483648 || n > 2147483647)
 		ft_error_exit();
 	return ((int)num);
+}
+
+void	ft_check_rep(t_list **n)
+{
+	t_list	*tmp_1;
+	t_list	*tmp_2;
+
+	tmp_1 = *n;
+	while (tmp_1)
+	{
+		tmp_2 = tmp_1->next;
+		while (tmp_2)
+		{
+			if (tmp_1->number == tmp_2->number)
+				ft_error_exit();
+			tmp_2 = tmp_2->next;
+		}
+		tmp_1 = tmp_1->next;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 09:07:50 by liferrei          #+#    #+#             */
-/*   Updated: 2025/10/15 14:45:24 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/10/15 15:43:26 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	rrr(t_list **tower_a, t_list **tower_b);
 void	ft_organize(t_list **a, t_list **b, int size);
 void	ft_organize_2(t_list **a);
 void	ft_organize_3(t_list **a);
-void	ft_organize_4_5(t_list **a);
+void	ft_organize_4_5(t_list **a, t_list **b, int size);
 void	ft_organize_big(t_list **a, t_list **b, int size_chunk);
 
 void	ft_set_index(t_list **a);

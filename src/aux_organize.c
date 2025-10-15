@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 16:02:48 by liferrei          #+#    #+#             */
-/*   Updated: 2025/10/11 17:02:56 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/10/15 15:13:32 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void	ft_set_index(t_list **a)
 	while (current)
 	{
 		comparer = *a;
+		index = 0;
 		while (comparer)
 		{
 			if (current->number > comparer->number)

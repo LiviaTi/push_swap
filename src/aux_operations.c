@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   aux_operations.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 09:21:33 by liferrei          #+#    #+#             */
-/*   Updated: 2025/10/11 16:59:10 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/10/15 15:26:52 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ int	n_min(t_list **n)
 
 	min = (*n)->number;
 	list = (*n)->next;
-	while (list)
+	while (list != NULL)
 	{
 		if (list->number < min)
-			min = list->next;
-		n = n->next;
+			min = list->number;
+		list = list->next;
 	}
 	return (min);
 }
@@ -38,8 +38,8 @@ int	n_max(t_list **n)
 	while (list)
 	{
 		if (list->number > max)
-			max = list->next;
-		n = n->next;
+			max = list->number;
+		list = list->next;
 	}
 	return (max);
 }
@@ -56,7 +56,7 @@ int	ft_index_max(t_list **n)
 	{
 		if (list->index > max)
 			max = list->index;
-		n = n->next;
+		list = list->next;
 	}
 	return (max);
 }
