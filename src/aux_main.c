@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 10:44:39 by liferrei          #+#    #+#             */
-/*   Updated: 2025/10/11 17:30:05 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/10/15 00:07:17 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ft_free_stack(char **stack)
 	*stack = NULL;
 }
 
-int ft_fill_stack(char **args, t_list **a)
+int	ft_fill_stack(char **args, t_list **a)
 {
 	int		i;
 	int		total;
@@ -76,7 +76,12 @@ int ft_fill_stack(char **args, t_list **a)
 	while (args[i])
 	{
 		total = ft_parse_number(arg[i]);
-		new_node = malloc
+		new_node = malloc(sizeof(t_list));
+		if (!new_node)
+			ft_error_exit();
+		new_node->number = num;
+		new_node->next = NULL;
+		ft_lst_add_back(a, new_node);
 		i++;
 	}
 	return (i);
