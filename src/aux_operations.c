@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 09:21:33 by liferrei          #+#    #+#             */
-/*   Updated: 2025/10/15 17:19:17 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/10/15 18:05:57 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	n_min(t_list **n)
 	int		min;
 	t_list	*list;
 
+	if (!n || !*n)
+		return (0); 
 	min = (*n)->number;
 	list = (*n)->next;
 	while (list != NULL)
@@ -33,6 +35,8 @@ int	n_max(t_list **n)
 	int		max;
 	t_list	*list;
 
+	if (!n || !*n)
+		return (0);
 	max = (*n)->number;
 	list = (*n)->next;
 	while (list)
@@ -65,8 +69,10 @@ int	ft_is_organize(t_list **n)
 {
 	t_list		*tmp;
 
+	if (!n || !*n)
+		return (1);
 	tmp = *n;
-	while (tmp)
+	while (tmp && tmp->next)
 	{
 		if (tmp->number > tmp->next->number)
 			return (0);

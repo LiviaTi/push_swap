@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 15:54:20 by liferrei          #+#    #+#             */
-/*   Updated: 2025/10/15 17:12:30 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/10/15 18:11:01 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_organize(t_list **a, t_list **b, int size)
 {
+	if (!a || !*a)
+		return ;
 	if (size >= 2 && size <= 5)
 	{
 		if (size == 2)
@@ -35,12 +37,14 @@ void	ft_organize(t_list **a, t_list **b, int size)
 
 void	ft_organize_2(t_list **a)
 {
-	if ((*a)->next->number < (*a)->number)
+	if (a && *a && (*a)->next && (*a)->next->number < (*a)->number)
 		sa(a);
 }
 
 void	ft_organize_3(t_list **a)
 {
+	if (!a || !*a || !(*a)->next || !(*a)->next->next)
+		return ;
 	if ((*a)->number == n_max(a))
 	{
 		ra(a);
@@ -63,7 +67,7 @@ void	ft_organize_4_5(t_list **a, t_list **b, int size)
 	int		i;
 
 	i = 0;
-	while (i < size / 2 + size % 2)
+	while ((*a) && i < size / 2 + size % 2)
 	{
 		if ((*a)->number > n_min(a) && !min_pos(a, n_min(a), lst_size(a)))
 			ra(a);
@@ -75,9 +79,9 @@ void	ft_organize_4_5(t_list **a, t_list **b, int size)
 			i++;
 		}
 	}
-	if ((*a)->number != n_min(a))
+	if ((*a) && (*a)->number != n_min(a))
 		sa(a);
-	while ((*b))
+	while (*b)
 		pa(a, b);
 }
 
@@ -86,12 +90,12 @@ void	ft_organize_big(t_list **a, t_list **b, int size_chunk)
 	int		i;
 
 	i = 0;
-	while ((*a))
+	while (*a)
 	{
-		if (i > 0 && (*a)->index < i)
+		if ((*a)->index < i)
 		{
 			pb(a, b);
-			if ((*a) && (*a)->index >= i + size_chunk)
+			if (*a && (*a)->index >= i + size_chunk)
 				rr(a, b);
 			else
 				rb(b);
