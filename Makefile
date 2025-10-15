@@ -6,75 +6,81 @@
 #    By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/13 16:38:52 by liferrei          #+#    #+#              #
-#    Updated: 2025/10/15 15:21:51 by liferrei         ###   ########.fr        #
+#    Updated: 2025/10/15 17:46:38 by liferrei         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= push_swap
+NAME = push_swap
 
 # Compiler
-CC		= gcc
-CFLAGS	= -Werror -Wextra -Wall 
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
 
 # Libft
-LIBFT_PATH	= libft/
-LIBFT_NAME	= libft.a
-LIBFT		= $(LIBFT_PATH)$(LIBFT_NAME)
+LIBFT_PATH = libft/
+LIBFT_NAME = libft.a
+LIBFT = $(LIBFT_PATH)$(LIBFT_NAME)
 
 # Includes
-INC			=	-I ./includes/\
-				-I ./libft/
+INC = -I ./includes/ -I ./libft/
 
 # Sources
-SRC_PATH	=	src/
-SRC			=	aux_organize.c \
-				aux_operations.c \
-				organize.c \
-				aux_main.c \
-				push.c \
-				reverse_rotate.c \
-				rotate.c \
-				swap.c \
-				validation.c \
+SRC_PATH = src/
+SRC_FILES = aux_organize.c \
+            aux_operations.c \
+            organize.c \
+            aux_main.c \
+            push.c \
+            reverse_rotate.c \
+            rotate.c \
+            swap.c \
+            validation.c \
+            main.c
 
-MAIN		= main.c
+SRC = $(addprefix $(SRC_PATH), $(SRC_FILES))
 
-SRCS		= $(addprefix $(SRC_PATH), $(SRC)) $(MAIN)
+# Objects (dentro de obj/)
+OBJ_PATH = obj/
+OBJ_FILES = $(SRC_FILES:.c=.o)
+OBJ = $(addprefix $(OBJ_PATH), $(OBJ_FILES))
 
-# Objects
-OBJ_PATH	= obj/
-OBJ			= $(SRC:.c=.o)
-OBJS		= $(addprefix $(OBJ_PATH), $(OBJ)) $(MAIN:.c=.o)
+# ---------------------------------------------------------------------------- #
+# Cria pasta obj/ se não existir
+$(OBJ_PATH):
+	@mkdir -p $(OBJ_PATH)
 
-all: $(LIBFT) $(NAME)
+# Regra para compilar cada objeto de src/ em obj/
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c | $(OBJ_PATH)
+	@echo "Compiling $<..."
+	$(CC) $(CFLAGS) -c $< -o $@ $(INC)
 
-$(OBJ_PATH)%.o: $(SRC_PATH)%.c
-	@$(CC) $(CFLAGS) -c $< -o $@ $(INC)
-
-%.o: %.c
-	@$(CC) $(CFLAGS) -c $< -o $@ $(INC)
-
+# Compila libft
 $(LIBFT):
-	@echo "Making libft..."
+	@echo "Compiling libft..."
 	@make -sC $(LIBFT_PATH)
 
-$(NAME): $(OBJS)
-	@echo "Compilando push_swap..."
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT) $(INC)
-	@echo "push_swap pronto."
+# Regra principal: compila objetos e linka
+all: $(NAME)
 
-bonus: all
+$(NAME): $(OBJ) $(LIBFT)
+	@echo "Linking $(NAME)..."
+	$(CC) $(CFLAGS) -o $@ $(OBJ) $(LIBFT)
+	@echo "$(NAME) ready."
 
+# ---------------------------------------------------------------------------- #
+# Limpar objetos
 clean:
-	@echo "Removendo .o object files..."
+	@echo "Removing object files..."
 	@rm -rf $(OBJ_PATH)
 	@make clean -C $(LIBFT_PATH)
 
+# Limpar tudo incluindo executável e libft
 fclean: clean
-	@echo "Removendo push_swap..."
+	@echo "Removing executable and libft..."
 	@rm -f $(NAME)
-	@rm -f $(LIBFT_PATH)$(LIBFT_NAME)
+	@rm -f $(LIBFT)
 
+# Recompilar tudo
 re: fclean all
 
 .PHONY: all re clean fclean

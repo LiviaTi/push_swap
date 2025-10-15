@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 09:21:33 by liferrei          #+#    #+#             */
-/*   Updated: 2025/10/15 15:26:52 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/10/15 17:19:17 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	ft_index_max(t_list **n)
 	return (max);
 }
 
-int	ft_is_chosen(t_list **n)
+int	ft_is_organize(t_list **n)
 {
 	t_list		*tmp;
 

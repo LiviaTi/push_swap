@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 15:31:28 by liferrei          #+#    #+#             */
-/*   Updated: 2025/10/11 15:51:05 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/10/15 17:08:47 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static void	ft_swap(t_list **stack)
 	t_list	*first;
 	t_list	*second;
 
-	if (!stack || !*stack || !(*stack)->nexrt)
-		return (0);
+	if (!stack || !*stack || !(*stack)->next)
+		return ;
 	first = *stack;
 	second = first->next;
 	first->next = second ->next;

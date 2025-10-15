@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 10:44:39 by liferrei          #+#    #+#             */
-/*   Updated: 2025/10/15 15:45:42 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/10/15 15:52:51 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_parse_input(int argc, char **argv, t_list **tower_a)
 			ft_free_split(args);
 			ft_error_exit();
 		}
-		size += ft_fill_tower_args(args, tower_a);
+		size += ft_fill_tower(args, tower_a);
 		ft_free_split(args);
 		i++;
 	}
@@ -41,7 +41,7 @@ void	ft_free_split(char **args)
 
 	i = 0;
 	if (!args)
-		return (0);
+		return ;
 	while (args[i])
 	{
 		free(args[i]);
@@ -50,7 +50,7 @@ void	ft_free_split(char **args)
 	free(args);
 }
 
-void	ft_free_stack(char **stack)
+void	ft_free_stack(t_list **stack)
 {
 	t_list	*current;
 	t_list	*tmp;
@@ -65,7 +65,7 @@ void	ft_free_stack(char **stack)
 	*stack = NULL;
 }
 
-int	ft_fill_stack(char **args, t_list **a)
+int	ft_fill_tower(char **args, t_list **a)
 {
 	int		i;
 	int		total;

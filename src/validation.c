@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 10:34:58 by liferrei          #+#    #+#             */
-/*   Updated: 2025/10/15 15:21:40 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/10/15 17:11:10 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_parse_number(const char *str)
 		ft_error_exit();
 	n = 0;
 	i = 0;
-	if (str[i] == "+" || str[i] == "-")
+	if (str[i] == '+' || str[i] == '-')
 		i++;
 	if (!ft_isdigit(str[i]))
 		ft_error_exit();
@@ -38,10 +38,11 @@ int	ft_parse_number(const char *str)
 			ft_error_exit();
 		i++;
 	}
-	n = ft_atoi(str);
+	n = ft_atol(str);
 	if (n < -2147483648 || n > 2147483647)
 		ft_error_exit();
-	return ((int)num);
+	num = n;
+	return (num);
 }
 
 void	ft_check_rep(t_list **n)

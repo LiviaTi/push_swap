@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 15:41:53 by liferrei          #+#    #+#             */
-/*   Updated: 2025/10/11 16:59:31 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/10/15 17:08:04 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	ft_reverse_rotate(t_list **stack)
 	t_list	*last;
 
 	if (!stack || !*stack || !(*stack)->next)
-		return (0);
+		return ;
 	first = NULL;
 	last = *stack;
 	while (last->next)

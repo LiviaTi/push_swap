@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 09:07:50 by liferrei          #+#    #+#             */
-/*   Updated: 2025/10/15 15:43:26 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/10/15 17:19:58 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ int		ft_parse_input(int argc, char **argv, t_list **tower_a);
 int		ft_parse_number(const char *str);
 void	ft_check_rep(t_list **n);
 void	ft_free_split(char **args);
-void	ft_free_stack(char **stack);
-int		ft_fill_stack(char **args, t_list **a);
+void	ft_free_stack(t_list **stack);
+int		ft_fill_tower(char **args, t_list **a);
 
 int		n_min(t_list **n);
 int		n_max(t_list **n);
 int		ft_index_max(t_list **n);
-int		ft_is_chosen(t_list **n);
+
 
 void	sa(t_list **tower_a);
 void	sb(t_list **tower_b);
@@ -46,6 +46,7 @@ void	rra(t_list **tower_a);
 void	rrb(t_list **tower_b);
 void	rrr(t_list **tower_a, t_list **tower_b);
 
+int		ft_is_organize(t_list **n);
 void	ft_organize(t_list **a, t_list **b, int size);
 void	ft_organize_2(t_list **a);
 void	ft_organize_3(t_list **a);
