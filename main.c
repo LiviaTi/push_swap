@@ -6,12 +6,11 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 09:07:44 by liferrei          #+#    #+#             */
-/*   Updated: 2025/10/11 17:17:12 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/10/15 00:30:07 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
 
 int main(int argc, char *argv[])
 {
