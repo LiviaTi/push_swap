@@ -12,40 +12,40 @@
 
 #include "../includes/push_swap.h"
 
-static void	ft_reverse_rotate(t_list **stack)
+static void	reverse_rotate(t_list **stack)
 {
-	t_list	*first;
 	t_list	*last;
+	t_list	*prev;
 
 	if (!stack || !*stack || !(*stack)->next)
 		return ;
-	first = NULL;
 	last = *stack;
-	while (last->next)
+	prev = NULL;
+	while (last->next != NULL)
 	{
-		first = last;
+		prev = last;
 		last = last->next;
 	}
 	last->next = *stack;
 	*stack = last;
-	first->next = NULL;
+	prev->next = NULL;
 }
 
-void	rra(t_list **tower_a)
+void	rra(t_list **list_a)
 {
-	ft_reverse_rotate(tower_a);
+	reverse_rotate(list_a);
 	write(1, "rra\n", 4);
 }
 
-void	rrb(t_list **tower_b)
+void	rrb(t_list **list_b)
 {
-	ft_reverse_rotate(tower_b);
+	reverse_rotate(list_b);
 	write(1, "rrb\n", 4);
 }
 
-void	rrr(t_list **tower_a, t_list **tower_b)
+void	rrr(t_list **list_a, t_list **list_b)
 {
-	ft_reverse_rotate(tower_a);
-	ft_reverse_rotate(tower_b);
+	reverse_rotate(list_a);
+	reverse_rotate(list_b);
 	write(1, "rrr\n", 4);
 }

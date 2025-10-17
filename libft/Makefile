@@ -1,42 +1,49 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/07/14 11:46:06 by liferrei          #+#    #+#              #
-#    Updated: 2025/10/15 15:04:35 by liferrei         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+
+
+RESET		= \033[0m
+GREEN_BOLD	= \033[1;32m
+YELLOW_BOLD	= \033[1;33m
+RED_BOLD	= \033[1;31m
 
 NAME = libft.a
+
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Werror -Wextra
+RM = rm -f
 AR = ar rcs
 
-SRC = \
-	ft_isdigit.c ft_split.c lst_size.c \
-	ft_strlen.c ft_memset.c ft_lst_add_back.c\
-	ft_memcpy.c	ft_memmove.c ft_strlcpy.c \
-	ft_calloc.c ft_strdup.c ft_substr.c \
-	ft_atol.c \
+SRC =   ft_atol.c           \
+        ft_bzero.c          \
+        ft_calloc.c         \
+        ft_isdigit.c        \
+        ft_memcpy.c         \
+        ft_memmove.c        \
+        ft_memset.c         \
+        ft_split.c          \
+        ft_strdup.c         \
+        ft_strlcpy.c        \
+        ft_strlen.c         \
+        ft_substr.c
 
-OBJ = $(SRC:.c=.o)
+OBJS = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(AR) $(NAME) $(OBJ)
+$(NAME): $(OBJS)
+	@$(AR) $(NAME) $(OBJS)
+	@echo "$(GREEN_BOLD)✅ Libft compiled successfully!$(RESET)"
 
-bonus: $(OBJ)
-	$(AR) $(NAME) $(OBJ)
+%.o: %.c
+	@$(CC) $(CFLAGS) -c $< -o $@
+	@echo "$(YELLOW_BOLD)Compiling libft:$(RESET) $<"
 
 clean:
-	rm -f $(OBJ)
+	@$(RM) $(OBJS)
+	@echo "$(RED_BOLD)🧼 Libft objects removed!$(RESET)"
 
 fclean: clean
-	rm -f $(NAME)
+	@$(RM) $(NAME)
+	@echo "$(RED_BOLD)🧼 Libft project fully cleaned!$(RESET)"
 
 re: fclean all
 

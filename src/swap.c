@@ -12,35 +12,37 @@
 
 #include "../includes/push_swap.h"
 
-static void	ft_swap(t_list **stack)
+static void swap(t_list **stack)
 {
-	t_list	*first;
-	t_list	*second;
+t_list *first;
+t_list *second;
 
 	if (!stack || !*stack || !(*stack)->next)
-		return ;
-	first = *stack;
-	second = first->next;
-	first->next = second ->next;
-	second->next = first;
-	*stack = second;
+			return;
+
+		first = *stack;          
+		second = first->next;    
+
+		first->next = second->next; 
+		second->next = first;       
+		*stack = second;            
 }
 
-void	sa(t_list **tower_a)
+void	sa(t_list **list_a)
 {
-	ft_swap(tower_a);
+	swap(list_a);
 	write(1, "sa\n", 3);
 }
 
-void	sb(t_list **tower_b)
+void	sb(t_list **list_b)
 {
-	ft_swap(tower_b);
+	swap(list_b);
 	write(1, "sb\n", 3);
 }
 
-void	ss(t_list **tower_a, t_list **tower_b)
+void	ss(t_list **list_a, t_list **list_b)
 {
-	ft_swap(tower_a);
-	ft_swap(tower_b);
+	swap(list_a);
+	swap(list_b);
 	write(1, "ss\n", 3);
 }

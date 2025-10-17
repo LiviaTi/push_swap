@@ -12,67 +12,62 @@
 
 #include "../includes/push_swap.h"
 
-int	n_min(t_list **n)
+int	n_min(t_list **a)
 {
 	int		min;
-	t_list	*list;
+	t_list	*p;
 
-	if (!n || !*n)
-		return (0); 
-	min = (*n)->number;
-	list = (*n)->next;
-	while (list != NULL)
+	min = (*a)->number;
+	p = (*a)->next;
+	while (p != NULL)
 	{
-		if (list->number < min)
-			min = list->number;
-		list = list->next;
+		if (p->number < min)
+			min = p->number;
+		p = p->next;
 	}
 	return (min);
 }
 
-int	n_max(t_list **n)
+
+int	n_max(t_list **a)
 {
 	int		max;
-	t_list	*list;
+	t_list	*p;
 
-	if (!n || !*n)
-		return (0);
-	max = (*n)->number;
-	list = (*n)->next;
-	while (list)
+	max = (*a)->number;
+	p = (*a)->next;
+	while (p != NULL)
 	{
-		if (list->number > max)
-			max = list->number;
-		list = list->next;
+		if (p->number > max)
+			max = p->number;
+		p = p->next;
 	}
 	return (max);
 }
 
-int	ft_index_max(t_list **n)
+int	ft_index_max(t_list **a)
 {
-	int		max;
-	t_list	*list;
+	int		max_index;
+	t_list	*p;
 
-	list = *n;
-	max = list->index;
-	list = list->next;
-	while (list)
+	p = *a;
+	max_index = p->index;
+	p = p->next;
+	while (p != NULL)
 	{
-		if (list->index > max)
-			max = list->index;
-		list = list->next;
+		if (max_index < p->index)
+			max_index = p->index;
+		p = p->next;
 	}
-	return (max);
+	return (max_index);
 }
 
-int	ft_is_organize(t_list **n)
+int	ft_is_organize(t_list **a)
 {
-	t_list		*tmp;
+	t_list	*tmp;
 
-	if (!n || !*n)
-		return (1);
-	tmp = *n;
-	while (tmp && tmp->next)
+	tmp = *a;
+	while (tmp->next)
 	{
 		if (tmp->number > tmp->next->number)
 			return (0);

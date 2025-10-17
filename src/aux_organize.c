@@ -12,24 +12,24 @@
 
 #include "../includes/push_swap.h"
 
-int	max_pos(t_list **b, int max, int size)
+int	max_pos(t_list **b, int max_index, int size)
 {
-	t_list	*n;
-	int		max_index;
+	t_list	*p;
+	int		index;
 	int		found;
 
-	max_index = 0;
+	index = 0;
 	found = 0;
-	n = *b;
-	while (n && !found)
+	p = *b;
+	while (p && !found)
 	{
-		if (n->index == max)
+		if (p->index == max_index)
 			found = 1;
 		else
-			max_index++;
-		n = n->next;
+			index++;
+		p = p->next;
 	}
-	if (max_index < size / 2 + size % 2)
+	if (index < size / 2 + size % 2)
 		return (0);
 	else
 		return (1);
@@ -37,20 +37,20 @@ int	max_pos(t_list **b, int max, int size)
 
 int	min_pos(t_list **a, int min, int size)
 {
-	t_list	*n;
+	t_list	*p;
 	int		min_index;
 	int		found;
 
 	min_index = 0;
 	found = 0;
-	n = *a;
-	while (n && !found)
+	p = *a;
+	while (p != NULL && !found)
 	{
-		if (n->index == min)
+		if (p->number == min)
 			found = 1;
 		else
 			min_index++;
-		n = n->next;
+		p = p->next;
 	}
 	if (min_index < size / 2 + size % 2)
 		return (0);
@@ -64,7 +64,6 @@ void	ft_set_index(t_list **a)
 	t_list	*comparer;
 	int		index;
 
-	index = 0;
 	current = *a;
 	while (current)
 	{
@@ -83,18 +82,14 @@ void	ft_set_index(t_list **a)
 
 void	ft_organize_pa(t_list **a, t_list **b)
 {
-	int		max;
-	int		size;
-
-	max = 0;
-	size = 0;
-	while (*b)
+	while (*b != NULL)
 	{
-		max = ft_index_max(b);
-		size = lst_size(b);
+		int max = ft_index_max(b);
+		int size_b = lst_size(*b);
+
 		if ((*b)->index != max)
 		{
-			if (!max_pos(b, max, size))
+			if (!max_pos(b, max, size_b))
 				rb(b);
 			else
 				rrb(b);

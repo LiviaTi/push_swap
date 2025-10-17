@@ -26,7 +26,6 @@ int	ft_parse_number(const char *str)
 
 	if (!str || *str == '\0')
 		ft_error_exit();
-	n = 0;
 	i = 0;
 	if (str[i] == '+' || str[i] == '-')
 		i++;
@@ -45,21 +44,21 @@ int	ft_parse_number(const char *str)
 	return (num);
 }
 
-void	ft_check_rep(t_list **n)
+void	ft_check_rep(t_list **a)
 {
-	t_list	*tmp_1;
-	t_list	*tmp_2;
+	t_list	*tmp1;
+	t_list	*tmp2;
 
-	tmp_1 = *n;
-	while (tmp_1)
+	tmp1 = *a;
+	while (tmp1)
 	{
-		tmp_2 = tmp_1->next;
-		while (tmp_2)
+		tmp2 = tmp1->next;
+		while (tmp2)
 		{
-			if (tmp_1->number == tmp_2->number)
+			if (tmp1->number == tmp2->number)
 				ft_error_exit();
-			tmp_2 = tmp_2->next;
+			tmp2 = tmp2->next;
 		}
-		tmp_1 = tmp_1->next;
+		tmp1 = tmp1->next;
 	}
 }

@@ -14,19 +14,18 @@
 
 int	main(int argc, char *argv[])
 {
-	t_list	*tower_a;
-	t_list	*tower_b;
-	int		size;
+	t_list	*a;
+	t_list	*b;
+	int		total_size;
 
-	tower_a = NULL;
-	tower_b = NULL;
-	size = 0;
-	if (argc < 2)
-		return (0);
-	size = ft_parse_input(argc, argv, &tower_a);
-	ft_check_rep(&tower_a);
-	if (!ft_is_organize(&tower_a))
-		ft_organize(&tower_a, &tower_b, size);
-	ft_free_stack(&tower_a);
+	a = NULL;
+	b = NULL;
+	if (argc < 2 || argv[1][0] == '\0')
+		ft_error_exit();
+	total_size = ft_parse_input(argc, argv, &a);
+	ft_check_rep(&a);
+	if (!ft_is_organize(&a))
+		ft_organize(&a, &b, total_size);
+	ft_cleanup(&a, &b);
 	return (0);
 }

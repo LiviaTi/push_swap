@@ -27,6 +27,7 @@ LIBFT_LNK   = -L $(LIBFT_DIR) -lft
 
 SRCS        =	src/aux_organize.c \
 				src/aux_operations.c \
+				src/func_list.c \
             	src/organize.c \
             	src/aux_main.c \
             	src/push.c \

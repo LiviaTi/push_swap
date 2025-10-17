@@ -12,28 +12,24 @@
 
 #include "../includes/push_swap.h"
 
-void	pa(t_list **tower_a, t_list **tower_b)
+void	pa(t_list **list_a, t_list **list_b)
 {
-	t_list		*tmp;
+	t_list	*tmp;
 
-	if (!tower_b || !*tower_b)
-		return ; 
-	tmp = *tower_b;
-	*tower_b = tmp->next;
-	tmp->next = *tower_a;
-	*tower_a = tmp;
+	tmp = *list_b;
+	*list_b = tmp->next;
+	tmp->next = *list_a;
+	*list_a = tmp;
 	write(1, "pa\n", 3);
 }
 
-void	pb(t_list **tower_a, t_list **tower_b)
+void	pb(t_list **list_a, t_list **list_b)
 {
-	t_list		*tmp;
+	t_list	*tmp;
 
-	if (!tower_b || !*tower_b)
-		return ; 
-	tmp = *tower_a;
-	*tower_a = tmp->next;
-	tmp->next = *tower_b;
-	*tower_b = tmp;
+	tmp = *list_a;
+	*list_a = tmp->next;
+	tmp->next = *list_b;
+	*list_b = tmp;
 	write(1, "pb\n", 3);
 }

@@ -1,38 +1,25 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/15 14:55:16 by liferrei          #+#    #+#             */
-/*   Updated: 2025/10/15 14:58:45 by liferrei         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "libft.h"
 
-long	ft_atol(const char *str)
+long	ft_atol(const char *nptr)
 {
-	int		i;
+	long	result;
 	int		sign;
-	long	number;
 
+	result = 0;
 	sign = 1;
-	i = 0;
-	number = 0;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
+		nptr++;
+	if (*nptr == '-' || *nptr == '+')
 	{
-		if (str[i] == '-')
+		if (*nptr == '-')
 			sign = -1;
-		i++;
+		nptr++;
 	}
-	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
+	while (ft_isdigit(*nptr))
 	{
-		number = (number * 10) + (str[i] - '0');
-		i++;
+		result = result * 10 + (*nptr - '0');
+		nptr++;
 	}
-	return (number * sign);
+	return (sign * result);
 }

@@ -14,8 +14,6 @@
 
 void	ft_organize(t_list **a, t_list **b, int size)
 {
-	if (!a || !*a)
-		return ;
 	if (size >= 2 && size <= 5)
 	{
 		if (size == 2)
@@ -37,21 +35,19 @@ void	ft_organize(t_list **a, t_list **b, int size)
 
 void	ft_organize_2(t_list **a)
 {
-	if (a && *a && (*a)->next && (*a)->next->number < (*a)->number)
+	if ((*a)->next->number < (*a)->number)
 		sa(a);
 }
 
 void	ft_organize_3(t_list **a)
 {
-	if (!a || !*a || !(*a)->next || !(*a)->next->next)
-		return ;
 	if ((*a)->number == n_max(a))
 	{
 		ra(a);
 		if ((*a)->number > (*a)->next->number)
 			sa(a);
 	}
-	else if ((*a)->number == n_min(a) && (*a)->next->number == n_max(a))
+	else if ((*a)->number == n_min(a) && (*a)->next->number == 	n_max(a))
 	{
 		rra(a);
 		sa(a);
@@ -64,14 +60,14 @@ void	ft_organize_3(t_list **a)
 
 void	ft_organize_4_5(t_list **a, t_list **b, int size)
 {
-	int		i;
+	int	i;
 
 	i = 0;
-	while ((*a) && i < size / 2 + size % 2)
+	while (i < size / 2 + size % 2)
 	{
-		if ((*a)->number > n_min(a) && !min_pos(a, n_min(a), lst_size(a)))
+		if ((*a)->number > n_min(a) && !min_pos(a, n_min(a), lst_size(*a)))
 			ra(a);
-		else if ((*a)->number > n_min(a) && min_pos(a, n_min(a), lst_size(a)))
+		else if ((*a)->number > n_min(a) && min_pos(a, n_min(a), lst_size(*a)))
 			rra(a);
 		else if ((*a)->number == n_min(a))
 		{
@@ -79,34 +75,34 @@ void	ft_organize_4_5(t_list **a, t_list **b, int size)
 			i++;
 		}
 	}
-	if ((*a) && (*a)->number != n_min(a))
+	if ((*a)->number != n_min(a))
 		sa(a);
-	while (*b)
+	while ((*b))
 		pa(a, b);
 }
 
-void	ft_organize_big(t_list **a, t_list **b, int size_chunk)
+void	ft_organize_big(t_list **a, t_list **b, int chunk_size)
 {
-	int		i;
+	int	i;
 
 	i = 0;
-	while (*a)
+	while ((*a) != NULL)
 	{
-		if ((*a)->index < i)
+		if (i > 0 && (*a)->index < i)
 		{
 			pb(a, b);
-			if (*a && (*a)->index >= i + size_chunk)
+			if ((*a) && (*a)->index >= i + chunk_size)
 				rr(a, b);
 			else
 				rb(b);
 			i++;
 		}
-		else if ((*a)->index < i + size_chunk)
+		else if ((*a)->index < i + chunk_size)
 		{
 			pb(a, b);
 			i++;
 		}
-		else if ((*a)->index >= i + size_chunk)
+		else if ((*a)->index >= i + chunk_size)
 			ra(a);
 	}
 	ft_organize_pa(a, b);
