@@ -6,12 +6,11 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 15:18:45 by liferrei          #+#    #+#             */
-/*   Updated: 2025/10/15 17:08:33 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/10/17 14:16:04 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
 
 static void	rotate(t_list **stack)
 {

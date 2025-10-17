@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 09:21:33 by liferrei          #+#    #+#             */
-/*   Updated: 2025/10/15 18:05:57 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/10/17 14:18:46 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	n_min(t_list **a)
 	}
 	return (min);
 }
-
 
 int	n_max(t_list **a)
 {

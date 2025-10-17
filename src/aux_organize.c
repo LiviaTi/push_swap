@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 16:02:48 by liferrei          #+#    #+#             */
-/*   Updated: 2025/10/15 15:13:32 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/10/17 14:18:23 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,15 @@ void	ft_set_index(t_list **a)
 
 void	ft_organize_pa(t_list **a, t_list **b)
 {
+	int	max;
+	int	size_b;
+
+	max = 0;
+	size_b = 0;
 	while (*b != NULL)
 	{
-		int max = ft_index_max(b);
-		int size_b = lst_size(*b);
-
+		max = ft_index_max(b);
+		size_b = lst_size(*b);
 		if ((*b)->index != max)
 		{
 			if (!max_pos(b, max, size_b))

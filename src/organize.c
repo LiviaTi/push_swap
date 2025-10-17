@@ -6,7 +6,7 @@
 /*   By: liferrei <liferrei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 15:54:20 by liferrei          #+#    #+#             */
-/*   Updated: 2025/10/15 18:11:01 by liferrei         ###   ########.fr       */
+/*   Updated: 2025/10/17 14:15:47 by liferrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	ft_organize_3(t_list **a)
 		if ((*a)->number > (*a)->next->number)
 			sa(a);
 	}
-	else if ((*a)->number == n_min(a) && (*a)->next->number == 	n_max(a))
+	else if ((*a)->number == n_min(a) && (*a)->next->number == n_max(a))
 	{
 		rra(a);
 		sa(a);
